@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category_list</title>
+   
+
+
+</head>
+<body>
+{%load static%}
+{%include 'navbar.html'%}
+<link rel="stylesheet" href="{% static 'css/bmin.css' %}">
+<link rel="stylesheet" href="{% static 'css/cat_list.css' %}">
+
+
+
+
+    <link rel="stylesheet" href="{%static 'css/bmin.css'%}">
+    <div class="category_container">
+        <div class="grid1">
+            <div class="cate_list">
+                <a href="/category">
+                    <div class="all_catelist">
+                        
+                        <p>All Products</p>
+                    </div>
+                </a>
+                <hr id="hr1">
+                {%for i in Cate%}
+                <a href="/filter/{{i.id}}">
+                    <div class="all_cate">
+                       
+                        <p>{{ i.category_name }}</p>
+                    </div>
+                </a>
+                {%endfor%}
+            </div>
+        </div>
+        <div class="main">
+            {%block body%}
+    
+            {%endblock%}
+        </div>
+        <script src="../static/js/script.js"></script>
+</body>
+</html>

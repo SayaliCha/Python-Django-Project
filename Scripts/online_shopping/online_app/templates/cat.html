@@ -1,0 +1,30 @@
+{%extends 'category_list.html'%}
+{%load static%}
+{%block body%}
+
+<link rel="stylesheet" href="../static/css/alert.css">
+<link rel="stylesheet" href="{%static 'css/category.css'%}">
+<link rel="stylesheet" href="{%static 'css/home.css'%}">
+<link rel="stylesheet" href="{%static 'css/cat.css'%}">
+<div class="grid2">
+    <div class="product_list">
+        <!-- <hr id="line"> -->
+        {%for i in product %}
+        <div class="col-md-4 mb-4 ">
+            <div class="card mb-4" >
+                <img src="{{i.product_img }}" class="card-img-top" alt="{{ i.name }}" style="height: 200px; width: 200px;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ i.product_name }}</h5>
+                    <p class="card-text">{{ product.description }}</p>
+                    <p class="card-text"><strong>Rs.{{ i.price }}</strong></p>
+                    <a href="{% url 'add_to_cart' i.id %}" class="btn btn-warning">Add To Cart</a>
+                    <a href="{% url 'add_to_cart' i.id %}" class="btn btn-warning">Buy Now</a>
+                    
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+<script src="../static/js/script.js"></script>
+{%endblock%}
